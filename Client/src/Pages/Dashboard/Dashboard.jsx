@@ -26,7 +26,7 @@ const Dashboard = () => {
 
     try {
       setLoadingStatus('Fetching user information...');
-      const response = await fetch('http://localhost:4000/auth/userinfo', {
+      const response = await fetch('https://salesforcewebintegration.onrender.com/auth/userinfo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ accessToken, instanceUrl }),
@@ -39,7 +39,7 @@ const Dashboard = () => {
 
       if (userInfoData.organization_id) {
         setLoadingStatus('Loading organization details...');
-        const orgResponse = await fetch('http://localhost:4000/auth/organization', {
+        const orgResponse = await fetch('https://salesforcewebintegration.onrender.com/auth/organization', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -56,7 +56,7 @@ const Dashboard = () => {
 
       if (userInfoData.user_id) {
         setLoadingStatus('Getting Salesforce username...');
-        const usernameResponse = await fetch('http://localhost:4000/auth/username', {
+        const usernameResponse = await fetch('https://salesforcewebintegration.onrender.com/auth/username', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -92,7 +92,7 @@ const Dashboard = () => {
           sessionStorage.setItem('code_used', 'true');
           setLoadingStatus('Exchanging authorization code...');
 
-          const response = await fetch('http://localhost:4000/auth/token', {
+          const response = await fetch('https://salesforcewebintegration.onrender.com/auth/token', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code }),
