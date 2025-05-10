@@ -25,7 +25,7 @@ const ValidationRule = () => {
     setObjectName(object);
 
     try {
-      const response = await fetch('http://localhost:4000/auth/validationRules', {
+      const response = await fetch('https://salesforcewebintegration.onrender.com/auth/validationRules', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ accessToken, instanceUrl, objectName: object }),
@@ -54,7 +54,7 @@ const ValidationRule = () => {
     });
 
     try {
-      const response = await fetch('http://localhost:4000/auth/toggleValidationRule', {
+      const response = await fetch('https://salesforcewebintegration.onrender.com/auth/toggleValidationRule', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
